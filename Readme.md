@@ -21,10 +21,8 @@ Run this command to scan a file or folder.
 clamdscan <file/folder>
 ```
 
-The logs of the file scan can be found on the server at:
-
-/var/logs/clamav/clamd.log
+The logs of the file scan can be found on the **server** at:
 
 ```
-
+/var/logs/clamav/clamd.log
 ```
