@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  server:
+    build: ./server
+    ports:
+      - "3310:3310"
+    networks:
+      clam_network:
+        ipv4_address: 172.20.0.10
+  client:
+    build: ./client
+    ports:
+      - "9000:9000"
+    tty: true
+    networks:
+      - clam_network
+    volumes:
+      - /Users/battagel/Repos/clam_test/client/malware:/home/malware
+      - /Users/battagel/Repos/clam_test/client/good:/home/good
+networks:
+  clam_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
